@@ -21,9 +21,10 @@
 #' * "homogeneity"
 #' * "completeness"
 #'
-#' @references Nowosad, Jakub, and Tomasz Stepinski. "Spatial association between
-#' regionalizations using the information-theoretical V-measure".
-#' http://doi.org/10.17605/OSF.IO/RCJH7
+#' @references Nowosad, Jakub, and Tomasz F. Stepinski.
+#' "Spatial association between regionalizations using the information-theoretical V-measure."
+#' International Journal of Geographical Information Science (2018).
+#' https://doi.org/10.1080/13658816.2018.1511794
 #' @references Rosenberg, Andrew, and Julia Hirschberg. "V-measure:
 #' A conditional entropy-based external cluster evaluation measure." Proceedings
 #' of the 2007 joint conference on empirical methods in natural language
@@ -59,11 +60,17 @@ vmeasure_calc = function(x, x_name, y, y_name, B = 1, precision = NULL){
   x = mutate_if(x, is.factor, as.character)
   x = mutate_if(x, is.numeric, as.character)
   suppressWarnings({x = st_cast(x, "POLYGON")})
+  if(nrow(x) < 2){
+    stop("Both regionalizations need to have at least two regions.")
+  }
 
   y = select(y, map2 := !!y_name)
   y = mutate_if(y, is.factor, as.character)
   y = mutate_if(y, is.numeric, as.character)
   suppressWarnings({y = st_cast(y, "POLYGON")})
+  if(nrow(y) < 2){
+    stop("Both regionalizations need to have at least two regions.")
+  }
 
   if(!is.null(precision)){
     x = st_set_precision(x, precision)
@@ -81,8 +88,8 @@ vmeasure_calc = function(x, x_name, y, y_name, B = 1, precision = NULL){
   SjZ = apply(z_df, 2, entropy.empirical, unit = "log2")
   SjR = apply(z_df, 1, entropy.empirical, unit = "log2")
 
-  SR = entropy.empirical(colSums(z_df), unit = "log2")
   SZ = entropy.empirical(rowSums(z_df), unit = "log2")
+  SR = entropy.empirical(colSums(z_df), unit = "log2")
 
   # homogeneity = 1 - sum((colSums(z_df)/sum(colSums(z_df)) * SjZ) / SZ)
   # completeness = 1 - sum((rowSums(z_df)/sum(rowSums(z_df)) * SjR) / SR)

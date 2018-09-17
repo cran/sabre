@@ -3,10 +3,13 @@
 
 # sabre
 
-[![Travis build
-status](https://travis-ci.org/Nowosad/sabre.svg?branch=master)](https://travis-ci.org/Nowosad/sabre)
-[![Coverage
-status](https://codecov.io/gh/Nowosad/sabre/branch/master/graph/badge.svg)](https://codecov.io/github/Nowosad/sabre?branch=master)
+[![CRAN
+status](http://www.r-pkg.org/badges/version/sabre)](https://cran.r-project.org/package=sabre)
+[![Build
+Status](https://travis-ci.org/Nowosad/sabre.png?branch=master)](https://travis-ci.org/Nowosad/sabre)
+[![codecov](https://codecov.io/gh/Nowosad/sabre/branch/master/graph/badge.svg)](https://codecov.io/gh/Nowosad/sabre)
+[![CRAN RStudio mirror
+downloads](http://cranlogs.r-pkg.org/badges/sabre)](https://cran.r-project.org/package=sabre)
 
 The **sabre** (**S**patial **A**ssociation **B**etween
 **RE**gionalizations) is an R package for calculating a degree of
@@ -19,13 +22,12 @@ methods:
 
 ## Installation
 
-<!-- You can install the released version of `sabre` from [CRAN](https://cran.r-project.org/web/packages/sabre/index.html) with: -->
+You can install the released version of `sabre` from
+[CRAN](https://cran.r-project.org/web/packages/sabre/index.html) with:
 
-<!-- ``` r -->
-
-<!-- install.packages("sabre") -->
-
-<!-- ``` -->
+``` r
+install.packages("sabre")
+```
 
 You can install the development version from
 [GitHub](https://github.com/nowosad/sabre) with:
@@ -99,15 +101,23 @@ plot(regions_vm$map2["rih"], main = "Map2: rih")
 
 <img src="man/figures/README-unnamed-chunk-6-1.png" width="50%" /><img src="man/figures/README-unnamed-chunk-6-2.png" width="50%" />
 
-See [the package
-vignette](https://nowosad.github.io/sabre/articles/sabre.html) for more
-examples.
+More examples can be found in [the package
+vignette](https://nowosad.github.io/sabre/articles/sabre.html) and in
+[the sabre: or how to compare two maps? blog
+post](https://nowosad.github.io/post/sabre-bp/).
+
+Additionally, examples presented in the [Spatial association between
+regionalizations using the information-theoretical
+V-measure](https://doi.org/10.1080/13658816.2018.1511794) article can be
+reproduced using data available at
+<http://sil.uc.edu/cms/index.php?id=data-1#vmeasure>.
 
 ## References
 
-  - Nowosad, Jakub, and Tomasz Stepinski. “Spatial association between
-    regionalizations using the information-theoretical V-measure”.
-    <http://doi.org/10.17605/OSF.IO/RCJH7>
+  - Nowosad, Jakub, and Tomasz F. Stepinski. “Spatial association
+    between regionalizations using the information-theoretical
+    V-measure.” International Journal of Geographical Information
+    Science (2018). <https://doi.org/10.1080/13658816.2018.1511794>
   - Rosenberg, Andrew, and Julia Hirschberg. “V-measure: A conditional
     entropy-based external cluster evaluation measure.” Proceedings of
     the 2007 joint conference on empirical methods in natural language
